@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			  content="width=device-width,
+					   user-scalable=no,
+					   initial-scale=1.0,
+					   maximum-scale=1.0,
+					   minimum-scale=1.0">
+		<title>authentication</title>
+		<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css">
+	</head>
+	<body layout="column" ng-cloak="">
+
+		<!--contenido principal-->
+		<md-content flex layout-padding ng-cloak="">
+			<div ng-view></div>
+		</md-content>
+
+		<!-- Angular Material Dependencies -->
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+		<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+		<script src="bower_components/angular-material/angular-material.min.js"></script>
+		<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+		<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+		<script src="bower_components/angular-route/angular-route.min.js"></script>
+
+		<!-- controllers -->
+		<script src="app.module.js"></script>
+		<script src="app.icons.js"></script>
+		<script src="authentication/auth.routes.js"></script>
+		<script src="factory/auth.factory.js"></script>
+		<script src="authentication/auth.controller.js"></script>
+	</body>
+</html>
