@@ -1,4 +1,5 @@
 angular.module('app', ['ngMaterial',
                        'ngMessages',
                        'ngResource',
-                       'ngRoute']);
+                       'ngRoute', 
+                       'LocalStorageModule']);

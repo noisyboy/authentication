@@ -1,19 +1,26 @@
 angular
     .module('app')
+    .config(localStorageService)
     .factory('session', session);
 
-    session.$inject = ['$resource'];
-    function session($resource) {
+    localStorageService.$inject = ['localStorageServiceProvider'];
+    function localStorageService(localStorageServiceProvider) {
+        localStorageServiceProvider
+            .setPrefix('app');
+    }
+
+    session.$inject = ['localStorageService', '$http'];
+    function session(localStorageService, $http) {
         return {
-            set: function (key, value) {
-                return sessionStorage.setItem(key, value);
+            set:function (key, value) {
+                return localStorageService.set(key, value);
             },
-            get: function (key) {
-                return sessionStorage.getItem(key);
+            get:function (key) {
+                return localStorageService.get(key);
             },
-            destroy: function (key) {
-                $resource('http://192.168.1.253/authentication/data.auth_login.php', {}, {});
-                return sessionStorage.removeItem(key);
+            destroy:function () {
+                $http.post('http://192.168.1.253/authentication/data.auth_logout.php');
+                return localStorageService.clearAll();
             }
         };
     }

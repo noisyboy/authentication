@@ -11,24 +11,23 @@ angular
         
         function log_in() {
             vm.account = auth.user.check({email: vm.email,
-                                           pass:  vm.pass});
-            vm.account.$promise.then(success);
-            function success(data) {
-                if (data.id) {
-                    session.set('user', data.id);
+                                          pass:  vm.pass});
+            vm.account.$promise.then(promesa);
+            function promesa(data) {
+                var id = data.id;
+                if (id) {
+                    console.log(id);
+                    session.set('user', id);
                     $location.path('/dashboard');
-                    console.log('con valor');
 
                 }else {
                     $location.path('/login');
-                    console.log('sin valor');
                 }
             }
         }
         
         function log_out() {
-            session.destroy();
-            $location.path('/');
+            auth.logout();
         }
 
         function toastInfo() {

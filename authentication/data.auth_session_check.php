@@ -1,5 +1,8 @@
 <?php
     session_start();
     if (isset($_SESSION['id_user'])) {
-        print 'authentified';
+        $check = [
+            'check'=> 'authentified'
+        ];
+        echo json_encode($check);
     }
